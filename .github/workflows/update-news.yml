@@ -1,5 +1,5 @@
 yaml
-name: Update Frost&Fire News
+name: "Update Frost&Fire News"
 
 # Kør hver tirsdag kl. 09:00 UTC (11:00 CET vintertid)
 on:
