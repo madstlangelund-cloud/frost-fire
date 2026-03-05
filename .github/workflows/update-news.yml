@@ -21,12 +21,12 @@ jobs:
       - name: "Install dependencies"
         run: npm install
 
-      - name: "Run news fetcher"
+      - name: "Run Google News fetcher"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-        run: node fetch-science-news.js
+        run: node fetch-google-news.js
 
       - name: "Commit and push changes"
         run: |
