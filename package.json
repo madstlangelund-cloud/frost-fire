@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Automated weekly science news fetcher for Frost&Fire - sauna and cold exposure portal",
   "main": "fetch-science-news.js",
-  "type": "module",
   "scripts": {
     "fetch-news": "node fetch-science-news.js",
     "test": "node fetch-science-news.js --dry-run"
