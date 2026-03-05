@@ -1,0 +1,32 @@
+{
+  "name": "frost-fire",
+  "version": "1.0.0",
+  "description": "Automated weekly science news fetcher for Frost&Fire - sauna and cold exposure portal",
+  "main": "fetch-science-news.js",
+  "type": "module",
+  "scripts": {
+    "fetch-news": "node fetch-science-news.js",
+    "test": "node fetch-science-news.js --dry-run"
+  },
+  "keywords": [
+    "sauna",
+    "cold-exposure",
+    "science",
+    "health",
+    "news-fetcher"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "rss-parser": "^3.13.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
