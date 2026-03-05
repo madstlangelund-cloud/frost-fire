@@ -1,0 +1,41 @@
+yaml
+name: Update Frost&Fire News
+
+# Kør hver tirsdag kl. 09:00 UTC (11:00 CET vintertid)
+on:
+  schedule:
+    - cron: "0 9 * * 2"
+
+  # Tillad manuel trigger
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run news fetcher
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node fetch-science-news.js
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Frost&Fire Bot"
+          git add -A
+          git commit -m "🔥❄️ Update: Frost&Fire news - $(date +'%Y-%m-%d %H:%M')" || echo "No changes"
+          git push
