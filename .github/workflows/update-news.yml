@@ -1,4 +1,4 @@
-```yaml
+yaml
 name: Update Frost&Fire News
 
 # Kør hver tirsdag kl. 09:00 UTC (11:00 CET vintertid)
@@ -39,4 +39,3 @@ jobs:
           git add -A
           git commit -m "🔥❄️ Update: Frost&Fire news - $(date +'%Y-%m-%d %H:%M')" || echo "No changes"
           git push
-```
